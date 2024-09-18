@@ -1,0 +1,78 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css);
+body{
+    font-family: 'Segoe UI';
+    color: white;
+    background: linear-gradient(90deg,#3f0b69,#144db1,#5283d8,#144db1);
+}
+p {
+    display: flex;
+    font-weight: bold;
+    font-size: 2.5rem;
+    align-items: center;
+    justify-content: center;
+}
+.todo-grid,
+.todo-input-grid {
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 10px;
+    row-gap: 10px;
+    align-items: center;
+}
+.todo-input-grid {
+    margin-bottom: 10px;
+    align-items: stretch;
+}
+.name-input,
+.duedate{
+    font-size: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-btn {
+    background-color: rgb(240, 119, 64);
+    color: white;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius:15px;
+    
+}
+.delete-btn {
+    background-color: rgba(190, 190, 190, 0.2);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+@media (min-Width:200px) and (max-width:600px){
+    
+    .todo-input-grid{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .js-todo-list{
+        font-size: 18px;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (min-width:700px) and (max-width:1500px) {
+    .todo-input-grid{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .js-todo-list{
+        font-size: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+}
