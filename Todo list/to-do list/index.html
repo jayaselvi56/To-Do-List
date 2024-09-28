@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="icon" href="icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+    <div class="overlay">
+        <p>Todo List</p>
+        <div class="todos">
+            <div class="todo-input-grid">
+                <input type="text" placeholder="Add your task here" class="js-input name-input">
+                <input type="date" class="due-date duedate"> 
+                <button class="addbtn add-btn" onclick="
+                addTodo();
+                ">Add</button>
+            </div>
+            <div class="js-todo-list todo-grid"></div>
+        </div>
+       
+    </div>
+    
+
+    <script src="todo.js"></script>
+</body>
+</html>

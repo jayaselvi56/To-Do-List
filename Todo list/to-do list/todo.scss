@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
+
+$primary-color: white;
+$secondary-color:blue;
+$thirdary-color:#0d8196;
+$font-family:'Poppins',sans-serif;
+$btnColor:#ecaf2a;
+$fontSize:medium;
+$fontHeading:2.5rem;
+$deleteBtn:#eeeded;
+$deleteBtnbg:#929292;
+
+@mixin todosIp(
+    $border:none,
+    $b-radius:5px,
+    $padding:10px,
+    $marginLf:10px
+) {
+
+    border:$border;
+    border-radius: $b-radius;
+    padding: $padding;
+    margin-left: $marginLf;
+}
+@mixin todoDisplay(
+    $display:block,
+    $jContent:center,
+    $M-top:10px
+) {
+    display: $display;
+    flex-direction: row;
+    align-items: center;
+    margin-top: $M-top;
+    justify-content: $jContent;
+}
+
+
+
+
+body {
+    
+    font-family: $font-family;
+    color: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to right,$secondary-color,$thirdary-color);
+
+   .overlay{
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+            
+        p{
+            font-size:$fontHeading;
+            font-weight: bold;
+            color: $primary-color;
+
+        }
+        .todos{
+            .todo-input-grid{
+               display: flex;
+                .js-input{
+                    @include todosIp()
+    
+                }
+                .duedate{
+                    @include todosIp()
+                }
+                .add-btn{
+                    color: $primary-color;
+                    background: $btnColor;
+                    @include todosIp()
+                }
+                .add-btn:hover{
+                    cursor: pointer;
+                }
+            }
+            .js-todo-list{
+                @include todoDisplay()
+            
+                
+            }
+        }
+        .new-todos{
+            @include todoDisplay(flex,space-around)
+        }
+        .delete-btn{
+            background-color: $deleteBtnbg;
+            color: $deleteBtn;
+            @include todosIp(0, 20px, 10px, 0)
+        }
+        .delete-btn:hover{
+            cursor: pointer;
+        }
+   }    
+
+}
+@mixin screenWidth ($width:20%,$fontSize:small) {
+    width: $width;
+    font-size: $fontSize;
+}
+
+@media (min-width:300px) and (max-width:600px) {
+    
+    $fontsize:30px;
+    $fontTodos:15px;
+    $delFontBtn:10px;
+
+    body{
+        
+        .overlay{
+           
+         
+            p{
+                font-size: $fontsize;
+               
+            }
+            .todos{
+                .todo-input-grid{
+                    
+                    .js-input{
+                       @include todosIp(0, 5px, 8px, 3px);
+                       @include screenWidth(150px,smaller )
+                    }
+                    .duedate{
+                       @include todosIp(0, 5px, 8px, 3px); 
+                       @include screenWidth(80px,smaller )
+
+                    }
+                    .add-btn {
+                       @include todosIp(0, 5px, 8px, 3px);
+                       @include screenWidth(40px,12px)
+
+                    }
+                    
+                
+                }
+                .js-todo-list{
+                    font-size: $fontTodos;
+                }
+                
+                .new-todos{
+                    font-size: $fontTodos;
+                }
+                .delete-btn{
+                    font-size: $delFontBtn;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width:600px) and (max-width:1330px) {
+    
+    $fontsize:38px;
+    $fontTodos:16px;
+    $delFontBtn:15px;
+
+    body{
+        
+        .overlay{
+        
+            p{
+                font-size: $fontsize;
+               
+            }
+            .todos{
+                .todo-input-grid{
+                    
+                    .js-input{
+                        @include screenWidth(100%,18px)
+                    }
+                    .duedate{
+                        @include screenWidth(100%,medium)
+
+
+                    }
+                    .add-btn {
+                        @include screenWidth(20%,medium)
+
+                    }
+                
+                }
+                .js-todo-list{
+                    font-size: $fontTodos;
+                }
+                
+                .new-todos{
+                    font-size: $fontTodos;
+                }
+                .delete-btn{
+                    font-size: $delFontBtn;
+                }
+            }
+        }
+    }
+}
